@@ -19,6 +19,9 @@
 		<java.version>1.8</java.version>
 		<jetty.version>9.3.3.v20150827</jetty.version>
 		
+		<!-- Spring Version -->
+		<spring.version>4.3.3.RELEASE</spring.version>
+		
 	</properties>
 	
 	<dependencyManagement>
@@ -41,7 +44,21 @@
 				<artifactId>transaction-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-		
+			
+			<!-- Spring -->
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-context</artifactId>
+			    <version>${spring.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-beans</artifactId>
+			    <version>${spring.version}</version>
+			</dependency>
+			
 		</dependencies>
 		
 	</dependencyManagement>
