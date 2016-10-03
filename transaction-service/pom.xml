@@ -19,7 +19,19 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>transaction-business</artifactId>
 		</dependency>
-		
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<!-- Rest-Easy -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+		</dependency>
+
 	</dependencies>
 	
 	
