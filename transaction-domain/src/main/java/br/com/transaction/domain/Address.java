@@ -15,7 +15,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonSerialize(include = Inclusion.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Entity(name = "address")
+@Entity(name = "address_test")
 public class Address implements Serializable {
 	
 	private static final long serialVersionUID = -7052017876921406891L;
@@ -33,7 +33,7 @@ public class Address implements Serializable {
 	@Column(name = "zip_code")
 	private String zipCode;
 	
-	@OneToOne(mappedBy = "customer_id")
+	//@OneToOne(mappedBy = "customer_id")
 	private Customer customer;
 	
 	

@@ -17,7 +17,13 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>transaction-domain</artifactId>
 		</dependency>
-		
+
+		<!--MySql Driver-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
 	</dependencies>
 	
 </project>

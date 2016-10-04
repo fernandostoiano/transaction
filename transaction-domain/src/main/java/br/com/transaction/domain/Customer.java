@@ -31,7 +31,7 @@ public class Customer implements Serializable {
 	@Column(name = "document")
 	private String document;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	//@OneToOne(fetch = FetchType.LAZY)
 	private Address address;
 
 	

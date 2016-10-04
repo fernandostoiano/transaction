@@ -23,8 +23,9 @@
 		<spring.version>4.3.3.RELEASE</spring.version>
 		<rest.easy.version>3.0.19.Final</rest.easy.version>
 		<hibernate.version>5.2.2.Final</hibernate.version>
-		
-		
+		<mysql.driver.version>5.1.27</mysql.driver.version>
+		<jboss.logging.version>3.3.0.Final</jboss.logging.version>
+
 	</properties>
 	
 	<dependencyManagement>
@@ -99,6 +100,26 @@
 			    <groupId>org.hibernate</groupId>
 			    <artifactId>hibernate-core</artifactId>
 			    <version>${hibernate.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.jboss.logging</groupId>
+						<artifactId>jboss-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!--MySql Driver-->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.driver.version}</version>
+			</dependency>
+
+			<!--Jboss Logging-->
+			<dependency>
+				<groupId>org.jboss.logging</groupId>
+				<artifactId>jboss-logging</artifactId>
+				<version>${jboss.logging.version}</version>
 			</dependency>
 			
 		</dependencies>
