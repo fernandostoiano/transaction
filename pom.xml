@@ -21,8 +21,8 @@
 		
 		
 		<spring.version>4.3.3.RELEASE</spring.version>
-		<hibernate.version>5.2.2.Final</hibernate.version>
 		<rest.easy.version>3.0.19.Final</rest.easy.version>
+		<hibernate.version>5.2.2.Final</hibernate.version>
 		
 		
 	</properties>

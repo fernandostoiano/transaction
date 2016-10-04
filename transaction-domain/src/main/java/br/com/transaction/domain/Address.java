@@ -1,4 +1,6 @@
-package br.com.transaction;
+package br.com.transaction.domain;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,8 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+
+@JsonSerialize(include = Inclusion.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity(name = "address")
-public class Address {
+public class Address implements Serializable {
+	
+	private static final long serialVersionUID = -7052017876921406891L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
