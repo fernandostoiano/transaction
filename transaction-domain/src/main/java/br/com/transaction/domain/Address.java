@@ -2,20 +2,25 @@ package br.com.transaction.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+import javax.persistence.Table;
 
 @JsonSerialize(include = Inclusion.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Entity(name = "address_test")
+@Entity
+@Table(name = "address_test")
 public class Address implements Serializable {
 	
 	private static final long serialVersionUID = -7052017876921406891L;
@@ -33,7 +38,8 @@ public class Address implements Serializable {
 	@Column(name = "zip_code")
 	private String zipCode;
 	
-	//@OneToOne(mappedBy = "customer_id")
+	@OneToOne(cascade= CascadeType.ALL, fetch= FetchType.LAZY)
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
 	
