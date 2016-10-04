@@ -4,6 +4,6 @@ import br.com.transaction.domain.Customer;
 
 public interface CustomerBO {
 	
-	public Customer create(Customer customer);
+	public Customer create();
 
 }

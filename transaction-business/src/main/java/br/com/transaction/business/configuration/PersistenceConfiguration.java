@@ -3,11 +3,14 @@ package br.com.transaction.business.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -15,6 +18,7 @@ import javax.sql.DataSource;
  * Created by fernando on 04/10/16.
  */
 @Configuration
+@EnableTransactionManagement
 public class PersistenceConfiguration {
 
     @Bean("entityManager")
@@ -45,6 +49,16 @@ public class PersistenceConfiguration {
         dataSource.setPassword("root");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         return dataSource;
+    }
+
+    @Bean(name = "transactionManager")
+    public PlatformTransactionManager transactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManager().getObject());
+        transactionManager.setJpaDialect(new HibernateJpaDialect());
+        transactionManager.setNestedTransactionAllowed(true);
+
+        return transactionManager;
     }
 
 }

@@ -27,9 +27,9 @@ public class CustomerService {
     @Path("/create")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(Customer customer) {
+    public Response create() {
     	
-    	Customer customerCreated = customerBO.create(customer);
+    	Customer customerCreated = customerBO.create();
     	
         return Response.ok(customerCreated).build();
     }
