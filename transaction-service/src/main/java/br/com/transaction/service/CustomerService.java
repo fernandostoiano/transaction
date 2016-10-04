@@ -1,37 +1,37 @@
 package br.com.transaction.service;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import br.com.transaction.business.CustomerBO;
 import br.com.transaction.domain.Customer;
 
 /**
  * Created by fernando on 03/10/16.
  */
 @Controller
-@Path("/transaction_api")
-public class TransactionService {
+@Path("/customer_api")
+public class CustomerService {
+	
+	@Autowired
+	private CustomerBO customerBO;
 
-
-    @GET
-    @Path("/get")
+    @POST
+    @Path("/create")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response get() {
+    public Response create(Customer customer) {
     	
-    	Customer customer = new Customer();
+    	Customer customerCreated = customerBO.create(customer);
     	
-    	customer.setId(1l);
-    	customer.setDocument("31002461871");
-    	customer.setName("Fernando");
-    	
-        return Response.ok(customer).build();
+        return Response.ok(customerCreated).build();
     }
 
 }

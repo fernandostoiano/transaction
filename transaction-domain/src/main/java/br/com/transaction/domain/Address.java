@@ -33,12 +33,6 @@ public class Address implements Serializable {
 	@Column(name = "zip_code")
 	private String zipCode;
 	
-	@Column(name = "number")
-	private Integer number;
-	
-	@Column(name = "complement")
-	private String complement;
-	
 	@OneToOne(mappedBy = "customer_id")
 	private Customer customer;
 	
@@ -74,27 +68,11 @@ public class Address implements Serializable {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
-	}
-
-	public String getComplement() {
-		return complement;
-	}
-
-	public void setComplement(String complement) {
-		this.complement = complement;
-	}
-
+	
 	public Customer getCustomer() {
 		return customer;
 	}
-
+	
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
